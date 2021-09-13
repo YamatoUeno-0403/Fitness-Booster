@@ -13,7 +13,7 @@
 
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
-       <a class="navbar-brand" href="/">ホーム</a>
+       <a class="navbar-brand" href="/posts">ホーム</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,23 +21,23 @@
             <ul class="navbar-nav">
             <%# if user_signed_in? %>
             
-                <li><%= link_to "", class:"nav-link  active btn-block" do %>
+                <li><%= link_to posts_path, class:"nav-link  active btn-block" do %>
                 <i class="fas fa-home">Home</i>
                 <% end %></li>
                 
-                <li><%= link_to "", class:"nav-link  active btn-block" do %>
-                <i class="fas fa-users">Users</i>
+                <li><%= link_to customers_path, class:"nav-link  active btn-block" do %>
+                <i class="fas fa-users">トレーニー</i>
                 <% end %></li>
                 
                 <li><%= link_to "", class:"nav-link  active btn-block" do %>
-                <i class="fas fa-book-open">Books</i>
+                <i class="fas fa-book-open">投稿</i>
                 <% end %></li>
                 
                 <li><%= link_to "", method: :delete , class:"nav-link  active btn-block" do %>
                 <i class="fas fa-sign-out-alt">logout</i>
                 <% end %></li>
             <%# else %>
-                <li class="nav-item active">
+                <!-- <li class="nav-item active">
                     <a class="nav-link" ><i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
                 </li>
                 
@@ -51,7 +51,7 @@
                 
                 <li class="nav-item active">
                     <a class="nav-link" ><i class="fas fa-sign-in-alt"></i>login</a>
-                </li>
+                </li> -->
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>

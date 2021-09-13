@@ -1,2 +1,20 @@
-<h1>Customers::Posts#show</h1>
-<p>Find me in app/views/customers/posts/show.html.erb</p>
+<div class="container">  
+        <div class="row">
+            
+            <%= render 'customers/shared/posts' %>
+              
+            <div class="col-md-8 offset-md-1">
+                <div class=" col-8 p-4  border rounded mt-3 ">
+                    
+                    デカい
+                    コメント
+                    日時
+                    内容
+                    ジム
+                    タグ
+                    <%= link_to "編集", edit_customer_path(@post.id) %>
+                </div>
+            <%= render "customers/post_comments/post_comment" %>    
+            </div>
+        </div>
+    </div>

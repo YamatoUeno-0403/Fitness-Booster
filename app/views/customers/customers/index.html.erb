@@ -4,12 +4,14 @@
             <%= render 'customers/shared/posts' %>
               
             <div class="col-md-8 offset-md-1">
-                <% @posts.each do |post| %>
+                <% @customers.each do |customer| %>
                 <div class=" col-8 p-4  border rounded mt-3 ">
                     <i class="far fa-grin-alt"></i>
-                    <div><%= post.supplement %></div>
-                    <div><%= post.content %></div>
-                    <%= link_to "詳細", post_path(post.id) %>
+                    
+                    <div><%= customer.name %></div>
+                    <div><%= link_to "詳細", customer_path(customer.id) %></div>
+
+                    
                 </div>
                 <% end %>
             </div>

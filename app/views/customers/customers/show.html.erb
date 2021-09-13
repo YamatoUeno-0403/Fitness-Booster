@@ -1,17 +1,18 @@
+
     <div class="container">  
         <div class="row">
             
             <%= render 'customers/shared/posts' %>
               
             <div class="col-md-8 offset-md-1">
-                <% @posts.each do |post| %>
                 <div class=" col-8 p-4  border rounded mt-3 ">
-                    <i class="far fa-grin-alt"></i>
-                    <div><%= post.supplement %></div>
-                    <div><%= post.content %></div>
-                    <%= link_to "詳細", post_path(post.id) %>
+                名前
+                ジム
+                サプリ
+                自己紹介
+                フォロー
+                <%= link_to "編集" , edit_customer_path(@customer.id) %>
                 </div>
-                <% end %>
             </div>
         </div>
     </div>
