@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customers::FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.create(customer_id: params[:post_id])
@@ -10,5 +12,4 @@ class Customers::FavoritesController < ApplicationController
     @favorite.destroy
     redirect_back(fallback_location: root_path)
   end
-    
 end

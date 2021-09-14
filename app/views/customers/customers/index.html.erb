@@ -1,16 +1,24 @@
     <div class="container">  
         <div class="row">
             
-            <%= render 'customers/shared/posts' %>
-              
+            <div class="col-md-3 p-4 border rounded h-50 " >
+                
+                <%= render 'customers/customers/info' %>
+                <%= render 'customers/posts/form' %>
+                
+            </div>
+            
             <div class="col-md-8 offset-md-1">
                 <% @customers.each do |customer| %>
-                <div class=" col-8 p-4  border rounded mt-3 ">
+                <div class=" col-8 p-4  border rounded mt-3 d-flex ">
+                    <div class="col-4">
                     <i class="far fa-grin-alt"></i>
-                    
+                    </div>
+                    <div class="col-4">
                     <div><%= customer.name %></div>
+                    <div><%#= costomer.content %></div>
                     <div><%= link_to "詳細", customer_path(customer.id) %></div>
-
+                    </div>
                     
                 </div>
                 <% end %>

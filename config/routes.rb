@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   }
 
   scope module: :customers do
+    root to: 'homes#top'
+    get 'about' => 'homes#about', as: 'about'
     resources :posts do
-      resources :post_comments, only: [:create, :destroy]
-      resource :favorites, only: [:create,:destroy]
+      resources :post_comments, only: %i[create destroy]
+      resource :favorites, only: %i[create destroy]
     end
 
     resources :customers

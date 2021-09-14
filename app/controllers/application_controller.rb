@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     posts_path(resource)
   end
 
+  def after_sign_out_path_for(_resource)
+    new_customer_session_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

@@ -29,6 +29,6 @@ class Customers::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :supplement)
+    params.fetch(:post, {}).permit(:content, :supplement)
   end
 end
