@@ -3,17 +3,17 @@
             <div class="col-md-3 p-4 border rounded h-50 " >
                 
                 <%= render 'customers/customers/info' %>
-                <%= render 'customers/posts/form' %>
+                <%= render 'customers/posts/form', post: @post_new %>
                 
             </div>
             
-              
             <div class="col-md-8 offset-md-1">
                 <% @posts.each do |post| %>
                 <div class=" col-8 p-4  border rounded mt-3 ">
                     <i class="far fa-grin-alt"></i>
                     <div><%= post.supplement %></div>
                     <div><%= post.content %></div>
+                    <div>いいね <%= post.favorites.count %></div>
                     <%= link_to "詳細", post_path(post.id) %>
                 </div>
                 <% end %>

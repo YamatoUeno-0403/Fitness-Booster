@@ -1,26 +1,28 @@
 <div class="text-center">
 <h2>edit</h2>
 
-<%= form_with model:@customer, local:true do |f| %>
+<%= form_with model:@customer ,local:true do |f| %>
  
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.email_field :name, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :name, autofocus: true%>
+  </div>
+
+  <!--
+  <div class="field">
+    <%#= f.label :password %>
+    <%# if @minimum_password_length %>
+    <em>(<%#= @minimum_password_length %> characters minimum)</em>
+    <%# end %><br />
+    <%#= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%#= f.label :password_confirmation %><br />
+    <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  -->
 
   <div class="actions">
     <%= f.submit "変更する" ,class:" btn btn-lg btn-primary mt-3"%>

@@ -5,7 +5,7 @@ class Customers::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comment = PostComment.new(post_comment_params)
     @post_comment.post_id = @post.id
-    @post_comment.customer_id = current_user.id
+    @post_comment.customer_id = current_customer.id
     if @post_comment.save
       redirect_to post_path(@post.id)
     else

@@ -5,21 +5,13 @@
  
 
   <div class="field">
+    <%= f.label :サプリメント %><br />
+    <%= f.text_field :supplement, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :内容 %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :サプリ %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.text_area :content, autofocus: true %>
   </div>
 
   <div class="actions">

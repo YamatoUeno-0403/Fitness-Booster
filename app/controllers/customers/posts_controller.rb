@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Customers::PostsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     @posts = Post.all
     @post = Post.new
@@ -8,9 +9,12 @@ class Customers::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_new = Post.new
+    @post_comments = @post.post_comments
+    @post_comment = PostComment.new
   end
 
-  def new; end
+
 
   def create
     @post = Post.new(post_params)
@@ -22,9 +26,16 @@ class Customers::PostsController < ApplicationController
     end
   end
 
-  def edit; end
+ def edit
+    @post = Post.find(params[:id])
 
-  def update; end
+ end
+  
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post.id), notice: "You have updated user successfully."
+  end
 
   private
 

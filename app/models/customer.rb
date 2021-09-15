@@ -6,6 +6,8 @@ class Customer < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :muscles, dependent: :destroy
+  has_many :post_comments
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -27,5 +29,14 @@ class Customer < ApplicationRecord
   # other_customerが含まれていないか確認
   def following?(other_user)
     followings.include?(other_user)
+  end
+  
+  #current_customerのpost_idが存在していれば
+  def favorited?(post)
+    self.favorites.exists?(post_id: post.id)
+  end
+  
+  def muscled?(post)
+    self.muscles.exists?(post_id: post.id)
   end
 end

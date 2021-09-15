@@ -4,10 +4,9 @@
             <div class="col-md-3 p-4 border rounded h-50 " >
                 
                 <%= render 'customers/customers/info' %>
-                <%= render 'customers/posts/form' %>
+                <%= render 'customers/posts/form', post: @post %>
                 
             </div>
-            
             <div class="col-md-8 offset-md-1">
                 <% @customers.each do |customer| %>
                 <div class=" col-8 p-4  border rounded mt-3 d-flex ">

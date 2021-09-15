@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_comments, only: %i[create destroy]
       resource :favorites, only: %i[create destroy]
+      resource :muscles, only: %i[create destroy]
     end
 
     resources :customers
