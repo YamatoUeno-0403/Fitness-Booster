@@ -14,21 +14,22 @@ class Customers::CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
-    if @customer != current_customer
-      redirect_to customer_path(current_customer)
-    end
+    redirect_to customer_path(current_customer) if @customer != current_customer
   end
+
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    redirect_to customer_path(@customer.id), notice: "You have updated user successfully."
+    redirect_to customer_path(@customer.id), notice: 'You have updated user successfully.'
   end
 
-private
+  private
+
   def post_params
     params.fetch(:post, {}).permit(:content, :supplement)
   end
+
   def customer_params
-    params.require(:customer).permit(:name)
+    params.require(:customer).permit(:name, :image)
   end
 end

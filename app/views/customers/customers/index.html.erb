@@ -11,7 +11,11 @@
                 <% @customers.each do |customer| %>
                 <div class=" col-8 p-4  border rounded mt-3 d-flex ">
                     <div class="col-4">
-                    <i class="far fa-grin-alt"></i>
+                        <% if customer.image.attached? %>
+                            <%= image_tag customer.image%>
+                        <% else %>
+                            <%= image_tag 'no_image.jpg' %>
+                        <% end %>
                     </div>
                     <div class="col-4">
                     <div><%= customer.name %></div>

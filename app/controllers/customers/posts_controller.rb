@@ -5,6 +5,7 @@ class Customers::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @customers = Customer.all
   end
 
   def show
@@ -12,9 +13,8 @@ class Customers::PostsController < ApplicationController
     @post_new = Post.new
     @post_comments = @post.post_comments
     @post_comment = PostComment.new
+    @customer = Customer.where(post_id: @post.id)
   end
-
-
 
   def create
     @post = Post.new(post_params)
@@ -26,20 +26,19 @@ class Customers::PostsController < ApplicationController
     end
   end
 
- def edit
+  def edit
     @post = Post.find(params[:id])
+  end
 
- end
-  
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(@post.id), notice: "You have updated user successfully."
+    redirect_to post_path(@post.id), notice: 'You have updated user successfully.'
   end
 
   private
 
   def post_params
-    params.fetch(:post, {}).permit(:content, :supplement)
+    params.fetch(:post, {}).permit(:content, :supplement, :image)
   end
 end

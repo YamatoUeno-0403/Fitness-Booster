@@ -1,33 +1,25 @@
 # frozen_string_literal: true
 
 class Customers::RelationshipsController < ApplicationController
-  before_action :set_user
-
+  # ——————フォロー機能を作成・保存・削除する————————————
   def create
-    following = current_user.follow(customer)
-    if following.save
-      flash[:success] = 'ユーザーをフォローしました'
-      redirect_to customer
-    else
-      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      redirect_to customer
-    end
+    current_customer.follow(params[:customer_id])
+    redirect_to request.referer # 遷移前のURLを取得する
   end
 
   def destroy
-    following = current_user.unfollow(customer)
-    if following.destroy
-      flash[:success] = 'ユーザーのフォローを解除しました'
-      redirect_to customer
-    else
-      flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
-      redirect_to customer
-    end
+    current_customer.unfollow(params[:customer_id])
+    redirect_to request.referer
   end
 
-  private
+  # ————————フォロー・フォロワー一覧を表示する-————————————
+  def followings
+    customer = Customer.find(params[:customer_id])
+    @customers = customer.followings
+  end
 
-  def customer
-    @customer = User.find(params[:relationship][:follow_id])
+  def followers
+    customer = Customer.find(params[:customer_id])
+    @customers = customer.followers
   end
 end

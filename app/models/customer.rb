@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Customer < ApplicationRecord
+  has_one_attached :image
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -9,34 +11,33 @@ class Customer < ApplicationRecord
   has_many :muscles, dependent: :destroy
   has_many :post_comments
 
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :customer
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  # 被フォロー関係を通じて参照→followed_idをフォローしている人
 
-  # フォローしようとしているのが自分自身ではないか検証
-  # 自分以外のidが見つかればリレーションを返し、見つからなければフォロー関係になる
-  def follow(other_customer)
-    relationships.find_or_create_by(follow_id: other_customer.id) unless self == other_customer
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  # 【class_name: "Relationship"】は省略可能
+  has_many :followings, through: :relationships, source: :followed
+  # 与フォロー関係を通じて参照→follower_idをフォローしている人
+
+  def follow(customer_id)
+    relationships.create(followed_id: customer_id)
   end
 
-  # フォローがあればアンフォローする
-  def unfollow(other_user)
-    relationship = relationships.find_by(follow_id: other_user.id)
-    relationship&.destroy
+  def unfollow(customer_id)
+    relationships.find_by(followed_id: customer_id).destroy
   end
 
-  # other_customerが含まれていないか確認
-  def following?(other_user)
-    followings.include?(other_user)
+  def following?(customer)
+    followings.include?(customer)
   end
-  
-  #current_customerのpost_idが存在していれば
+
+  # current_customerのpost_idが存在していれば
   def favorited?(post)
-    self.favorites.exists?(post_id: post.id)
+    favorites.exists?(post_id: post.id)
   end
-  
+
   def muscled?(post)
-    self.muscles.exists?(post_id: post.id)
+    muscles.exists?(post_id: post.id)
   end
 end
