@@ -3,7 +3,7 @@
 class Customers::PostsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @posts = Post.all
+    @posts = Post.with_attached_image
     @post = Post.new
     @customers = Customer.all
   end
@@ -13,7 +13,7 @@ class Customers::PostsController < ApplicationController
     @post_new = Post.new
     @post_comments = @post.post_comments
     @post_comment = PostComment.new
-    @customer = Customer.where(post_id: @post.id)
+    @customers =  Customer.all
   end
 
   def create

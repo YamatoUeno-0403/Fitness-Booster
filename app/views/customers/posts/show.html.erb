@@ -3,7 +3,10 @@
             
             <div class="col-md-3 p-4 border rounded h-50 " >
                 
-                <%= render 'customers/customers/info' %>
+                <!--ユーザーサイドバー-->
+                <%= render 'customers/customers/info', post: @post, customer: @post.customer_id %>
+                
+                <!--投稿フォーム-->
                 <%= render 'customers/posts/form', post: @post_new %>
                 
             </div>
@@ -11,16 +14,17 @@
             <div class="col-md-8 offset-md-1">
                 <div class=" col-9 p-4  border rounded mt-3 ">
                     <div class="col-8 d-flex">
+                        
                         <div class="col-auto border rounded">
-                        <% if @post.image.attached? %>
-                            <%= image_tag @post.image%>
-                        <% else %>
-                            <%= image_tag 'no_image.jpg' %>
-                        <% end %>
+                            <!--画像-->
+                            <%= render "customers/shared/image_attached", post: @post %>
                         </div>
+                        
                         <div class="col-auto ">
+                            <!--フォローボタン-->
                         <%= render "customers/relationships/follow",customer: @customer  %>
                         </div>
+                        
                     </div>
                     <ul>
                         <li><%= @post.content %></li>
@@ -28,11 +32,10 @@
                         <li>ジム</li>
                         <li>タグ</li>
                     </ul>
-                    
-                    <td>
 
-                    </td>
+                    <!--コメントフォーム-->
                     <td><%= render "customers/post_comments/post_comment" %></td>
+                    
                     <div class="h3 pt-3"> コメント一覧</div>
                     <% @post_comments.each do |comment| %>
                         <div class="col-5 pt-3">
@@ -47,10 +50,11 @@
                             
                         </div>
                     <% end %>
-                        
-
                 </div>
+                
+                <!--いいねボタン-->
                 <%= render "customers/favorites/favorite", post: @post %>
+                
                 <%= @post.favorites.count %>
                 <%= link_to "編集", edit_post_path(@post.id) %>
             </div>

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_916_024_254) do
+ActiveRecord::Schema.define(version: 20_210_917_033_137) do
   create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20_210_916_024_254) do
     t.string 'supplement'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.integer 'customer_id'
   end
 
   create_table 'relationships', force: :cascade do |t|

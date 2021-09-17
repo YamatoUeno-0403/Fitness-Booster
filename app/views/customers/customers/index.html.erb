@@ -3,7 +3,10 @@
             
             <div class="col-md-3 p-4 border rounded h-50 " >
                 
-                <%= render 'customers/customers/info' %>
+                <!--ユーザーサイドバー-->
+                <%= render 'customers/customers/info', post: current_customer, customer: current_customer %>
+                
+                 <!--投稿フォーム-->
                 <%= render 'customers/posts/form', post: @post %>
                 
             </div>
@@ -11,15 +14,14 @@
                 <% @customers.each do |customer| %>
                 <div class=" col-8 p-4  border rounded mt-3 d-flex ">
                     <div class="col-4">
-                        <% if customer.image.attached? %>
-                            <%= image_tag customer.image%>
-                        <% else %>
-                            <%= image_tag 'no_image.jpg' %>
-                        <% end %>
+                        
+                    <!--画像-->
+                    <%= render "customers/shared/image_attached", post: customer %>
+                    
                     </div>
                     <div class="col-4">
                     <div><%= customer.name %></div>
-                    <div><%#= costomer.content %></div>
+                    <div><%=  %></div>
                     <div><%= link_to "詳細", customer_path(customer.id) %></div>
                     </div>
                     
