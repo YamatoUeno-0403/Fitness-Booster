@@ -12,19 +12,21 @@
             </div>
             <div class="col-md-8 offset-md-1">
                 <% @customers.each do |customer| %>
-                <div class=" col-8 p-4  border rounded mt-3 d-flex ">
-                    <div class="col-4">
-                        
+                <div class=" col-8 p-2 mt-1 border rounded ">
+                    <div class="col-12 d-flex">
+                                 
                     <!--画像-->
+                    <div class="col">
                     <%= render "customers/shared/image_attached", post: customer %>
-                    
+                    <%= link_to customer.name,customer_path(customer.id) %>
                     </div>
-                    <div class="col-4">
-                    <div><%= customer.name %></div>
-                    <div><%=  %></div>
-                    <div><%= link_to "詳細", customer_path(customer.id) %></div>
+                    <!--フォローボタン-->
+                    <div class="col mt-3">
+                    <%= render "customers/relationships/follow" , customer: customer %>  
                     </div>
-                    
+           
+                    </div>
+      
                 </div>
                 <% end %>
             </div>

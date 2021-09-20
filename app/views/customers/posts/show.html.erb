@@ -4,7 +4,7 @@
             <div class="col-md-3 p-4 border rounded h-50 " >
                 
                 <!--ユーザーサイドバー-->
-                <%= render 'customers/customers/info', post: @post, customer: @post.customer_id %>
+                <%= render 'customers/customers/info', post: @post, customer: @post.customer %>
                 
                 <!--投稿フォーム-->
                 <%= render 'customers/posts/form', post: @post_new %>
@@ -30,7 +30,7 @@
                         <li><%= @post.content %></li>
                         <li><%= @post.supplement %></li>
                         <li>ジム</li>
-                        <li>タグ</li>
+                        <li><%= render 'customers/posts/tag_list', tag_list: @post.tag_list %></li>
                     </ul>
 
                     <!--コメントフォーム-->

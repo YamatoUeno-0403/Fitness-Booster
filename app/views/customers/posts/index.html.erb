@@ -14,16 +14,24 @@
                 <% @posts.each do |post| %>
                 <div class=" col-8 p-4  border rounded mt-3 ">
                     
-                    <!--画像-->
-                    <%= render "customers/shared/image_attached", post: post %>
+                    <div class="col-auto d-flex">
+                        <!--プロフィール画像-->
+                        <div class="col ml-2"><%= render "customers/shared/image_attached", post: post %></div>
+
+                        <!--フォローボタン-->
+                        <div class="col pt-1 ml-5"><%= render "customers/relationships/follow",customer: post.customer %></div>
+                    </div>
                     
-                    <!--フォローボタン-->
-                    <%= render "customers/relationships/follow",customer: post %>
+                        <div class="pl-5"><%= link_to post.customer.name ,customer_path(post.customer.id)%></div>
+                        <!--タグ-->
+                        <div class="p-2"><%= render 'customers/posts/tag_list', tag_list: post.tag_list %></div>
                     
-                    <div><%= post.supplement %></div>
-                    <div><%= post.content %></div>
-                    <div>いいね <%= post.favorites.count %></div>
-                    <%= link_to "詳細", post_path(post.id) %>
+                        <div class="col p-4 "><%= post.content %></div>
+                    <div class="col-12 d-flex bd-highlight pt-5">
+                          <div class="col-4 mr-4 bd-highlight"><%= l post.created_at,format: :short%></div>
+                          <div class="ml-5 bd-highlight">いいね: <%= post.favorites.count %></div>
+                          <div class=" ml-5 bd-highlight">コメント:<%= post.post_comments.count %></div>
+                    </div>
                 </div>
                 <% end %>
             </div>

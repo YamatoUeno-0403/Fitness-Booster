@@ -6,8 +6,14 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    posts_path
+    case resource
+    when Admins
+      admins_customers_path
+    when Customers
+      posts_path
+    end
   end
+
 
   def after_sign_out_path_for(_resource)
     new_customer_session_path

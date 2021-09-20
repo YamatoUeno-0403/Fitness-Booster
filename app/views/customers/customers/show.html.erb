@@ -4,7 +4,7 @@
             
             <div class="col-md-3 p-4 border rounded h-50 " >
                 <!--ユーザーサイドバー-->
-                <%= render 'customers/customers/info' , post: @customer, customer: @customer%>
+                <%= render 'customers/customers/info' , post: @customer, customer: @customer %>
                  <!--投稿フォーム-->
                 <%= render 'customers/posts/form', post: @post %>
                 
@@ -13,6 +13,7 @@
             <div class="col-md-8 offset-md-1">
                 <div class=" col-8 p-4  border rounded mt-3 ">
                     
+                <%= render "customers/relationships/follow" , customer: @customer %>   
                 <!--画像-->
                 <%= render "customers/shared/image_attached", post: @customer %>
                 
@@ -21,7 +22,9 @@
                 サプリ
                 自己紹介
                 フォロー
+                <% if current_customer.id == @customer.id %>
                 <%= link_to "編集" , edit_customer_path(@customer.id) %>
+                <% end %>
                 </div>
             </div>
         </div>

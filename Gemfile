@@ -77,6 +77,6 @@ gem 'redcarpet'
 
 gem 'devise'
 
-gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts-as-taggable-on'
 
 gem 'image_processing', '~> 1.2'

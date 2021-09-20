@@ -21,6 +21,7 @@ end
 5.times do |n|
   Post.create!(
     content: "content#{n + 1}",
-    supplement: "supplement#{n + 1}"
+    supplement: "supplement#{n + 1}",
+    customer_id: "#{n + 1}"
   )
 end

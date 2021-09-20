@@ -3,9 +3,8 @@
 class Customers::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @post = Post.new(post_params)
-    @customers = Customer.includes( image_attachment: :blob)
-
+    @post = Post.new
+    @customers = Customer.includes(image_attachment: :blob)
   end
 
   def show

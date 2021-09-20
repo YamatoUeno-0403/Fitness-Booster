@@ -1,0 +1,22 @@
+<h2>投稿一覧</h2>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>内容</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+ <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.customer_id %></td>
+        <td><%= post.customer.name %></td>
+        <td><%= post.content %></td>
+        <td class="btn-sm btn-danger">削除</td>
+        
+        <td></td>
+      </tr>  
+<% end %>
