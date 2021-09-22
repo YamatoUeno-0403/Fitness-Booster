@@ -80,3 +80,8 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 
 gem 'image_processing', '~> 1.2'
+
+
+group :production do
+  gem 'mysql2'
+end

@@ -29,8 +29,9 @@
                         <div class="col p-4 "><%= post.content %></div>
                     <div class="col-12 d-flex bd-highlight pt-5">
                           <div class="col-4 mr-4 bd-highlight"><%= l post.created_at,format: :short%></div>
-                          <div class="ml-5 bd-highlight">いいね: <%= post.favorites.count %></div>
-                          <div class=" ml-5 bd-highlight">コメント:<%= post.post_comments.count %></div>
+                          <div class="ml-3 bd-highlight">いいね: <%= post.favorites.count %></div>
+                          <div class=" ml-3 mr-1 bd-highlight">コメント:<%= post.post_comments.count %></div>
+                          <div><%= link_to "詳細",post_path(post.id)%></div>
                     </div>
                 </div>
                 <% end %>

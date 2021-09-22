@@ -23,11 +23,17 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
+    
+    get "search" => "searches#index"
   end
   
-    devise_for :admins, :skip =>[:registrations, :passwords],controllers: {
+  
+  devise_for :admins,controllers: {
     sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations'
   }
+  
    namespace :admins do
     resources :customers
     resources :posts

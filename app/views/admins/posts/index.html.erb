@@ -15,8 +15,6 @@
         <td><%= post.customer_id %></td>
         <td><%= post.customer.name %></td>
         <td><%= post.content %></td>
-        <td class="btn-sm btn-danger">削除</td>
-        
-        <td></td>
+        <td><%= link_to "削除",admins_post_path(post.id), method: :delete, class:"btn-sm btn-danger", data: { confirm: "削除しますか？" } %></td>
       </tr>  
 <% end %>
