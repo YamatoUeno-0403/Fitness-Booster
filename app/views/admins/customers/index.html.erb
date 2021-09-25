@@ -1,0 +1,22 @@
+<h2>会員一覧</h2>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+ <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.email %></td>
+        <td><%= link_to "削除",admins_customer_path(customer.id), method: :delete, class:"btn-sm btn-danger", data: { confirm: "削除しますか？" } %></td>
+        
+        <td></td>
+      </tr>  
+<% end %>

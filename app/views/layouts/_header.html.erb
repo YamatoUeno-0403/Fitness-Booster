@@ -1,0 +1,59 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+       <a class="navbar-brand" href="/"><%= image_tag 'muscle_icon.jpeg' %></a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
+            <ul class="navbar-nav">
+            <% if customer_signed_in? %>
+                
+                <li><%= link_to customers_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-users"> トレーニー</i>
+                <% end %></li>
+                
+                <li><%= link_to posts_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-clone"> 投稿</i>
+                <% end %></li>
+                
+                <li><%= link_to destroy_customer_session_path, method: :delete , class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-sign-out-alt"> ログアウトする</i>
+                <% end %></li>
+                
+                <li><%= render "customers/searches/search"%></li>
+                
+            <% elsif admin_signed_in? %>
+            
+                <li><%= link_to admins_posts_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-home"> 投稿一覧</i>
+                <% end %></li>
+                
+                <li><%= link_to admins_customers_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-users"> ユーザー一覧</i>
+                <% end %></li>
+                
+                <li><%= link_to destroy_admin_session_path, method: :delete , class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-sign-out-alt"> ログアウトする</i>
+                <% end %></li>
+                
+                <li><%= render "customers/searches/search"%></li>
+            
+            <% else %>
+            
+                <li><%= link_to "/about", class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-link"> FitnessBoosterとは</i>
+                <% end %></li>
+                
+                <li><%= link_to " /customers/sign_up", class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-user-plus"> アカウント作成</i>
+                <% end %></li>
+                
+                <li><%= link_to " /customers/sign_in", class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-user-plus"> ログインする</i>
+                <% end %></li>
+                
+            <% end %>
+            </ul>
+       </div>
+    </nav>
+</header>

@@ -1,0 +1,9 @@
+    <% if current_customer.muscled?(post) %>
+            <%= link_to post_muscles_path(post), method: :delete, remote: true do %>
+                デカい<i class="far fa-grin-hearts"></i>
+            <% end %>
+        <% else %>
+            <%= link_to post_muscles_path(post), method: :post, remote: true do %>
+                 デカい<i class="fas fa-grin-hearts"></i>
+            <% end %>
+    <% end %>

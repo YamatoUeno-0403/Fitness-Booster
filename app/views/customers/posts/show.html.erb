@@ -1,0 +1,70 @@
+<div class="container">  
+        <div class="row">
+            
+            <div class="col-md-3 p-4 border rounded h-50 shadow" >
+                
+                <!--ユーザーサイドバー-->
+                <%= render 'customers/customers/info', post: @post, customer: @post.customer %>
+                
+                <!--投稿フォーム-->
+                <%= render 'customers/posts/form', post: @post_new %>
+                
+            </div>
+            
+            <div class="col-md-8 offset-md-1">
+                <div class=" col-9 p-4  border rounded mt-3 shadow">
+                    <div class="col-8 d-flex">
+                        
+                        <div class="col-auto border rounded">
+                            <!--画像-->
+                            <%= render "customers/shared/image_attached", post: @post %>
+                        </div>
+                        
+                        <div class="col-auto ">
+                            <!--フォローボタン-->
+                        <%= render "customers/relationships/follow",customer: @customer  %>
+                        </div>
+                        
+                    </div>
+                    <ul>
+                        <div><%= @post.content %></div>
+                        <div>
+                            <% if @post.post_image.attached? %>
+                                <%= image_tag @post.post_image %>
+                            <% end %>
+                        </div>
+                        <li>ジム</li>
+                        <li><%= render 'customers/posts/tag_list', tag_list: @post.tag_list %></li>
+                    </ul>
+
+                    <!--コメントフォーム-->
+                    <td id="favorite_buttons_<%= @post.id  %>">
+                        <td><%= render "customers/post_comments/post_comment" %></td>
+                    </td>
+                    
+                    <div class="h3 pt-3"> コメント一覧</div>
+                    <% @post_comments.each do |comment| %>
+                        <div class="col-5 pt-3">
+                            
+                		    <%= link_to customer_path(comment.customer) do %>
+                  		        <%= comment.customer.name %>
+                		    <% end %>
+                		    <%= comment.comment %>
+                            <% if current_customer == comment.customer %>
+                                <%= link_to 'Destroy',post_post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete ,remote: true%>
+                            <% end %>
+                            
+                        </div>
+                    <% end %>
+                </div>
+                
+                <!--いいねボタン-->
+
+                <td id="favorite_buttons_<%= @post.id  %>">
+                     <%= render 'customers/favorites/favorite', post: @post %><%= @post.favorites.count %>
+                </td>
+                
+                <%= link_to "編集", edit_post_path(@post.id) %>
+            </div>
+        </div>
+    </div>
