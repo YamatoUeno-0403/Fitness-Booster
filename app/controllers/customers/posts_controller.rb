@@ -3,7 +3,7 @@
 class Customers::PostsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @posts = Post.includes(:image_attachment, :customer, :taggings)
+    @posts = Post.includes(:image_attachment, :customer, :taggings, :post_image_attachment)
     @posts = Post.tagged_with(params[:tag_name]) if params[:tag_name]
     @post_new = Post.new
     @customers = Customer.all
@@ -41,6 +41,6 @@ class Customers::PostsController < ApplicationController
   private
 
   def post_params
-    params.fetch(:post, {}).permit(:content, :supplement, :image, :tag_list)
+    params.fetch(:post, {}).permit(:content, :supplement, :image, :tag_list, :post_image)
   end
 end

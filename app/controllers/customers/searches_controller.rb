@@ -9,6 +9,7 @@ class Customers::SearchesController < ApplicationController
       @customers = Customer.looks(params[:search], params[:word])
   else
       @posts = Post.looks(params[:search], params[:word])
+     
   end
   end
 end

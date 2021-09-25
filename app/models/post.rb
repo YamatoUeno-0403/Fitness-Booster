@@ -2,6 +2,7 @@
 
 class Post < ApplicationRecord
   has_one_attached :image
+  has_one_attached :post_image
   acts_as_taggable
 
   belongs_to :customer, optional: true

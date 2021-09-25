@@ -1,7 +1,7 @@
     <div class="container">  
         <div class="row">
             
-            <div class="col-md-3 p-4 border rounded h-50 " >
+            <div class="col-md-3 p-4 mt-5 border rounded shadow h-50 bg-light">
                 
                 <!--ユーザーサイドバー-->
                 <%= render 'customers/customers/info', post: current_customer, customer: current_customer %>
@@ -10,25 +10,31 @@
                 <%= render 'customers/posts/form', post: @post %>
                 
             </div>
-            <div class="col-md-8 offset-md-1">
+            <div class="col-md-8 offset-1">
                 <% @customers.each do |customer| %>
-                <div class=" col-8 p-2 mt-1 border rounded ">
-                    <div class="col-12 d-flex">
+                    <div class="col-8 p-4 mt-5 border rounded shadow bg-light">
                                  
-                    <!--画像-->
-                    <div class="col">
-                    <%= render "customers/shared/image_attached", post: customer %>
-                    <%= link_to customer.name,customer_path(customer.id) %>
+                        <div class="col d-flex">
+                            <!--プロフィール画像-->
+                            <div class="pr-4"><%= render "customers/shared/image_attached", post: customer %></div>
+                            <p class="pr-4"><%= link_to customer.name,customer_path(customer.id) %></p>
+                            <!--フォローボタン-->
+                            <div class="pl-5"><%= render "customers/relationships/follow" , customer: customer %> </div>
+                            
+                            <% if current_customer.id == customer.id %>
+                                <div class="pl-5 ml-3"><i class="fas fa-user-check fa-3x"></i></div>
+                            <% end %>
+                            
+                        </div>
+                        
+                        <div class="col mt-4">
+                        
+                        <div><%= customer.introduction %></div>
+                        </div>
                     </div>
-                    <!--フォローボタン-->
-                    <div class="col mt-3">
-                    <%= render "customers/relationships/follow" , customer: customer %>  
-                    </div>
-           
-                    </div>
-      
-                </div>
                 <% end %>
             </div>
+                
         </div>
+        
     </div>

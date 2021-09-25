@@ -1,7 +1,7 @@
 <div class="container">  
         <div class="row">
             
-            <div class="col-md-3 p-4 border rounded h-50 " >
+            <div class="col-md-3 p-4 border rounded h-50 shadow" >
                 
                 <!--ユーザーサイドバー-->
                 <%= render 'customers/customers/info', post: @post, customer: @post.customer %>
@@ -12,7 +12,7 @@
             </div>
             
             <div class="col-md-8 offset-md-1">
-                <div class=" col-9 p-4  border rounded mt-3 ">
+                <div class=" col-9 p-4  border rounded mt-3 shadow">
                     <div class="col-8 d-flex">
                         
                         <div class="col-auto border rounded">
@@ -27,14 +27,20 @@
                         
                     </div>
                     <ul>
-                        <li><%= @post.content %></li>
-                        <li><%= @post.supplement %></li>
+                        <div><%= @post.content %></div>
+                        <div>
+                            <% if @post.post_image.attached? %>
+                                <%= image_tag @post.post_image %>
+                            <% end %>
+                        </div>
                         <li>ジム</li>
                         <li><%= render 'customers/posts/tag_list', tag_list: @post.tag_list %></li>
                     </ul>
 
                     <!--コメントフォーム-->
-                    <td><%= render "customers/post_comments/post_comment" %></td>
+                    <td id="favorite_buttons_<%= @post.id  %>">
+                        <td><%= render "customers/post_comments/post_comment" %></td>
+                    </td>
                     
                     <div class="h3 pt-3"> コメント一覧</div>
                     <% @post_comments.each do |comment| %>
@@ -53,9 +59,11 @@
                 </div>
                 
                 <!--いいねボタン-->
-                <%= render "customers/favorites/favorite", post: @post %>
+
+                <td id="favorite_buttons_<%= @post.id  %>">
+                     <%= render 'customers/favorites/favorite', post: @post %><%= @post.favorites.count %>
+                </td>
                 
-                <%= @post.favorites.count %>
                 <%= link_to "編集", edit_post_path(@post.id) %>
             </div>
         </div>

@@ -9,7 +9,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
   email: 'admin1@naganocake.com',
-  password: 'admin1'
+  password: ENV['admin_login_password']
+)
+Admin.create!(
+  email: 'admin2@naganocake.com',
+  password: "admin2"
 )
 5.times do |n|
   Customer.create!(

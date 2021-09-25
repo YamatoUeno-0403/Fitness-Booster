@@ -1,3 +1,12 @@
-// Place all the styles related to the customers/customers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#image { 
+  display: none;
+}
+.button {
+  display: block;
+  width: 230px;
+  text-align: center;
+  background-color: #ebebeb;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

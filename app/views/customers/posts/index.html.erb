@@ -1,6 +1,7 @@
+<div id="posts_index">    
     <div class="container">  
         <div class="row">
-            <div class="col-md-3 p-4 border rounded h-50 " >
+            <div class="col-md-3 p-4 mt-5 border rounded h-50 shadow" >
                 
                 <!--ユーザーサイドバー-->
                 <%= render 'customers/customers/info' , post: current_customer, customer: current_customer %>
@@ -10,9 +11,9 @@
                 
             </div>
             
-            <div class="col-md-8 offset-md-1">
+            <div class="col-md-8 offset-md-1 mt-5">
                 <% @posts.each do |post| %>
-                <div class=" col-8 p-4  border rounded mt-3 ">
+                <div class=" col-8 p-4  border rounded mt-3 shadow">
                     
                     <div class="col-auto d-flex">
                         <!--プロフィール画像-->
@@ -25,6 +26,12 @@
                         <div class="pl-5"><%= link_to post.customer.name ,customer_path(post.customer.id)%></div>
                         <!--タグ-->
                         <div class="p-2"><%= render 'customers/posts/tag_list', tag_list: post.tag_list %></div>
+                        
+                        <div>
+                            <% if post.post_image.attached? %>
+                                <%= image_tag post.post_image.variant(resize:'150x150')  %>
+                            <% end %>
+                        </div>
                     
                         <div class="col p-4 "><%= post.content %></div>
                     <div class="col-12 d-flex bd-highlight pt-5">
@@ -38,3 +45,4 @@
             </div>
         </div>
     </div>
+</div>
