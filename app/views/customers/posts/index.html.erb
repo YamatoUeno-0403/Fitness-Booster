@@ -1,7 +1,7 @@
 <div id="posts_index">    
     <div class="container">  
         <div class="row">
-            <div class="col-md-3 p-4 mt-5 border rounded h-50 shadow" >
+            <div class="col-md-3 p-4 mt-5 border rounded shadow h-50 bg-light" >
                 
                 <!--ユーザーサイドバー-->
                 <%= render 'customers/customers/info' , post: current_customer, customer: current_customer %>
@@ -11,9 +11,9 @@
                 
             </div>
             
-            <div class="col-md-8 offset-md-1 mt-5">
+            <div class="col-md-8 offset-md-1">
                 <% @posts.each do |post| %>
-                <div class=" col-8 p-4  border rounded mt-3 shadow">
+                <div class="col-8 p-4 mt-5 border rounded shadow bg-light">
                     
                     <div class="col-auto d-flex">
                         <!--プロフィール画像-->
