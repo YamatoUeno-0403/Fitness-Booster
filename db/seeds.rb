@@ -13,7 +13,7 @@ Admin.create!(
 )
 Admin.create!(
   email: 'admin2@naganocake.com',
-  password: "admin2"
+  password: 'admin2'
 )
 5.times do |n|
   Customer.create!(
@@ -26,6 +26,6 @@ end
   Post.create!(
     content: "content#{n + 1}",
     supplement: "supplement#{n + 1}",
-    customer_id: "#{n + 1}"
+    customer_id: (n + 1).to_s
   )
 end

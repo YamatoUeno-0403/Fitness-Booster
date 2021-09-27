@@ -1,23 +1,47 @@
-<h2>Results index</h2>
 
-<table class="table table-hover table-inverse">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 border bg-light shadow offset-md-2 mt-4">
+      <table class='table'>
+    
   <!--検索対象モデルがCustomerの時 -->
   <% if @range == "Customer" %>
+  <h1 class="display-6 text-danger">トレーニー一覧</h1>
+    <thead>
+          <tr>
+            <th class="col-2">プロフィール画像</th>
+            <th class="col-2">名前</th>
+            <th class="col-4">自己紹介</th>
+          </tr>
+    </thead>
+    <% @customers.each do |customer| %>
     <tbody>
-      <% @customers.each do |customer| %>
         <tr>
-          <td><%= customer.name %></td>
+          <td><%= render "customers/shared/image_attached", post: customer  %></td>
+          <td><%= link_to customer.name , customer_path(customer.id)%></td>
+          <td><%= customer.introduction %></td>
         </tr>
-      <% end %>
     </tbody>
+    <% end %>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
-    <tbody>
-      <% @posts.each do |post| %>
+    <!--検索対象モデルがCustomerではない時(= 検索対象モデルがPostの時) -->
+    <h1 class="display-6 text-danger">投稿一覧</h1>
+    <thead>
+          <tr>
+            <th class="col-2">プロフィール画像</th>
+            <th class="col-2">名前</th>
+            <th class="col-4">投稿内容</th>
+          </tr>
+    </thead>
+      
+    <% @posts.each do |post| %>
+      <tbody>
         <tr>
+          <td><%= render "customers/shared/image_attached", post: post.customer  %></td>
+          <td><%= link_to post.customer.name , customer_path(post.customer.id)%></td>
           <td><%= post.content %></td>
         </tr>
-      <% end %>
     </tbody>
+    <% end %>
   <% end %>
 </table>

@@ -21,7 +21,7 @@ class Customers::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
-      redirect_to posts_path
+    @posts = Post.all
     else
       @post = Post.all
       render 'index'
@@ -37,7 +37,12 @@ class Customers::PostsController < ApplicationController
     @post.update(post_params)
     redirect_to post_path(@post.id), notice: 'You have updated user successfully.'
   end
-
+  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @posts = Post.all
+  end
   private
 
   def post_params

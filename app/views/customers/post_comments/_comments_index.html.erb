@@ -1,0 +1,14 @@
+<div class="h3 pt-3"> コメント一覧</div>
+    <% @post_comments.each do |comment| %>
+         <div class="col-5 pt-3">
+                            
+            <%= link_to customer_path(comment.customer) do %>
+                <%= comment.customer.name %>
+            <% end %>
+                <%= comment.comment %>
+             <% if current_customer == comment.customer %>
+                 <%= link_to 'Destroy',post_post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete ,remote: true%>
+           <% end %>
+                            
+         </div>
+    <% end %>

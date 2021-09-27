@@ -8,8 +8,10 @@ class Customers::CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
     @post = Post.new
+    @customer = Customer.find(params[:id])
+    @posts = @customer.posts.includes([:post_image_attachment])
+    
   end
 
   def edit
