@@ -11,7 +11,7 @@
                 
             </div>
             
-            <div class="col-md-7 p-3 mt-4 offset-md-1 shadow border rounded bg-light">
+            <div class="col-md-6 p-3 mt-4 offset-md-1 shadow border rounded bg-light">
                     <div class="col-8 d-flex">
                         
                         <div class="col-auto mr-5">
@@ -27,10 +27,10 @@
                     </div>
                     
                     <div class="col-auto p-4">
-                        <div class="p-2 mt-2"><%= @post.content %></div>
+                        <div class="p-2 mt-2 text-break"><%= @post.content %></div>
                         <!-------------投稿画像-------->
                         <div>
-                            <% if @post.post_image.attached? %>z
+                            <% if @post.post_image.attached? %>
                                 <%= image_tag @post.post_image.variant(resize:'500x500') %>
                             <% end %>
                         </div>
