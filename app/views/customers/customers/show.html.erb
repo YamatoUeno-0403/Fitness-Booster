@@ -49,8 +49,9 @@
                           <p class="text-break"><%= post.content %></p>
                           <% if post.post_image.attached? %>
                                 <%= image_tag post.post_image.variant(resize:'450x400')  %>
-                            <% end %>
-                            </div>
+                          <% end %>
+                          <div class="col-4 offset-md-9"><%= link_to "詳細を見る", post_path(post.id), class:"btn btn-light" %></div>
+                         </div>
                         <% end %>
                     
                 </div>

@@ -10,7 +10,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @post = Post.new
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts.includes([:post_image_attachment])
+    @posts = @customer.posts.includes(:post_image_attachment)
     
   end
 
