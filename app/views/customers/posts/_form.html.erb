@@ -1,12 +1,12 @@
     <%= form_with model:post , data: {remote: true} do  |f| %>
 
         <div class="field">
-            <%= f.label :タグ %>
+            <p>タグ(,でタグを区切れます)</p>
             <%= f.text_field :tag_list, class: 'form-control',value: post.tag_list.join(',') %>
 　　    </div>
 　　    
         <div class="form-group pb-4">
-            <%= f.label :content %>
+            <%= f.label :投稿内容 %>
             <%= f.text_area :content, class: 'form-control' %>
         </div>
 
@@ -16,7 +16,8 @@
         <img id="preview" style="width:100%;">
         
         <div class="form-group pt-4">
-            <%= f.submit "投稿する", class: 'btn btn-outline-danger' %></div>
+            <input type="submit" value"送信する" name="commit" class="button-form">
+        </div>
     <% end %>
     
 

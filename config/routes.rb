@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-
   devise_for :customers, controllers: {
     sessions: 'customers/sessions',
     passwords: 'customers/passwords',
@@ -23,17 +21,16 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
-    
-    get "search" => "searches#index"
+
+    get 'search' => 'searches#index'
   end
-  
-  
-  devise_for :admins,:skip =>[:registrations],controllers: {
+
+  devise_for :admins, skip: [:registrations], controllers: {
     sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
+    passwords: 'admins/passwords'
   }
-  
-   namespace :admins do
+
+  namespace :admins do
     resources :customers
     resources :posts
   end

@@ -14,3 +14,13 @@
  *= require_self
  */
 @import "bootstrap";
+
+body{
+    background  : linear-gradient(154deg, #f8f4e6, #ffffff, #f8f4e6);
+}
+
+.card {
+  margin: 0 auto 60px;
+  max-width: 376px;
+  height: 370px;
+}

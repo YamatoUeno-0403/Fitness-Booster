@@ -1,3 +1,21 @@
 #post_index{
     background-color:#e9dacb;
 }
+.button-form {
+  display       : inline-block;
+  border-radius : 5%;         
+  font-size     : 13pt;        
+  text-align    : center;     
+  cursor        : pointer;     
+  padding       : 11px 100px;  
+  background    : rgb(223, 86, 86);     
+  color         : #ffffff;    
+  line-height   : 1em;         
+  opacity       : 0.9;        
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 3px #666666;  /* 影の設定 */
+}
+.button-form:hover {
+  box-shadow    : none;        
+  opacity       : 1;           
+}

@@ -1,3 +1,18 @@
-// Place all the styles related to the customers/PostComments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.button-btn {
+  display       : inline-block;
+  border-radius : 5%;         
+  font-size     : 13pt;        
+  text-align    : center;     
+  cursor        : pointer;     
+  padding       : 11px 55px;  
+  background    : rgb(223, 86, 86);     
+  color         : #ffffff;     
+  line-height   : 1em;         
+  opacity       : 0.9;         
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 3px #666666;  /* 影の設定 */
+}
+.button-btn:hover {
+  box-shadow    : none;        
+  opacity       : 1;           
+}

@@ -13,25 +13,48 @@
             <div class="col-md-8 offset-md-1">
                 <div class=" col-md-9 p-4 mt-5 border rounded shadow bg-light">
                     
-                    <div class="col d-flex">
+                    <div class="col-12 d-flex">
                         <!--プロフィール画像-->
-                        <div><%= render "customers/shared/image_attached", post: @customer %></div>
-                        <div class="pl-2"><%= @customer.name %></div>
-                        <!--フォローボタン-->
-                        <div  class="offset-md-3"><%= render "customers/relationships/follow" , customer: @customer %></div>
+                        <div class="col-1"><%= render "customers/shared/image_attached", post: @customer %></div>
+                        <div class="col-4 offset-md-2"><%= @customer.name %></div>
+                       
                         
                         <% if current_customer.id == @customer.id %>
-                            <div class="offset-md-4"><i class="fas fa-user-check fa-3x"></i></div>
+                            <div class="col-4 offset-md-3"><i class="fas fa-user-check fa-3x"></i></div>
+                        <% elsif %>
+                             <!--フォローボタン-->
+                        <div  class="col-4 offset-md-1"><%= render "customers/relationships/follow" , customer: @customer %></div>
                         <% end %>
                     </div>
                     
-                    <div><%= @customer.introduction %></div>
+                    <div class="col-12 m-3">
+                    <div class="text-break"><%= @customer.introduction %></div>
+                    
+            
+                    </div>
                     
                     <% if current_customer.id == @customer.id %>
                         <div class="offset-md-10"><%= link_to "編集" , edit_customer_path(@customer.id),class: "btn btn-success" %></div>
                     <% end %>
-                
+                    
+    
+                    
+                </div>
+                <h2 class="pt-5">投稿一覧</h2>
+                <div class="col-9 border rounded bg-light mt-3 shadow">
+                    
+                   
+                        <% @posts.each do |post| %>
+                         <div class="col-12 border rounded mt-3 p-3 shadow bg-light ">
+                          <p class="text-break"><%= post.content %></p>
+                          <% if post.post_image.attached? %>
+                                <%= image_tag post.post_image.variant(resize:'450x400')  %>
+                            <% end %>
+                            </div>
+                        <% end %>
+                    
                 </div>
             </div>
+
         </div>
     </div>

@@ -4,12 +4,11 @@ class Customers::RelationshipsController < ApplicationController
   # ——————フォロー機能を作成・保存・削除する————————————
   def create
     current_customer.follow(params[:customer_id])
-    redirect_to request.referer # 遷移前のURLを取得する
+    
   end
 
   def destroy
     current_customer.unfollow(params[:customer_id])
-    redirect_to request.referer
   end
 
   # ————————フォロー・フォロワー一覧を表示する-————————————

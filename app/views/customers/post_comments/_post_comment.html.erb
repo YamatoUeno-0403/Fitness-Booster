@@ -1,4 +1,4 @@
-<%= form_with model:[@post,@post_comment], data: {remote: true} do  |f| %>
-<%= f.text_area :comment, placeholder:"コメントする",size:"60x5"  %><br>
-<%= f.submit '送信', class:"btn btn-light"%>
+<%= form_with model:[@post,@post_comment], local: false do  |f| %>
+  <%= f.text_area :comment, placeholder:"コメントする",size:"60x5"  %><br>
+  <input type="submit" name="commit" value"送信する" class="button-btn offset-md-7 mt-1">
 <% end %>
