@@ -11,49 +11,41 @@
             </div>
             
             <div class="col-md-8 offset-md-1">
-                <div class=" col-md-9 p-4 mt-5 border rounded shadow bg-light">
-                    
-                    <div class="col-12 d-flex">
+                <div class="row col-md-9 p-4 mt-5 border rounded shadow bg-light">
                         <!--プロフィール画像-->
-                        <div class="col-1"><%= render "customers/shared/image_attached", post: @customer %></div>
-                        <div class="col-4 offset-md-2"><%= @customer.name %></div>
+                        <div class="col-md-3"><%= render "customers/shared/image_attached", post: @customer %></div>
+                        <div class="col-md-4"><%= @customer.name %></div>
                        
-                        
                         <% if current_customer.id == @customer.id %>
-                            <div class="col-4 offset-md-3"><i class="fas fa-user-check fa-3x"></i></div>
+                            <div class="col-md-4 offset-md-1"><i class="fas fa-user-check fa-3x"></i></div>
                         <% elsif %>
-                             <!--フォローボタン-->
-                        <div  class="col-4 offset-md-1"><%= render "customers/relationships/follow" , customer: @customer %></div>
+                            <!--フォローボタン-->
+                            <div  class="col-md-4"><%= render "customers/relationships/follow" , customer: @customer %></div>
                         <% end %>
-                    </div>
                     
-                    <div class="col-12 m-3">
-                    <div class="text-break"><%= @customer.introduction %></div>
-                    
-            
-                    </div>
-                    
+                    <div class="col-md-12 mt-3 mb-3 text-break"><%= @customer.introduction %></div>
                     <% if current_customer.id == @customer.id %>
-                        <div class="offset-md-10"><%= link_to "編集" , edit_customer_path(@customer.id),class: "btn btn-success" %></div>
+                        <div class="col-md-4 offset-md-10"><%= link_to "編集" , edit_customer_path(@customer.id),class: "btn btn-success" %></div>
                     <% end %>
-                    
-    
-                    
-                </div>
-                <h2 class="pt-5">投稿一覧</h2>
-                <div class="col-9 border rounded bg-light mt-3 shadow">
-                    
-                   
-                        <% @posts.each do |post| %>
-                         <div class="col-12 border rounded mt-3 p-3 shadow bg-light ">
-                          <p class="text-break"><%= post.content %></p>
-                          <% if post.post_image.attached? %>
+                </div> 
+                <h2 class="mt-5">投稿一覧</h2>
+                
+                <div class="row mt-3">
+                    <% @posts.each do |post| %>
+                        <div class="col-md-9 border rounded mt-3 mb-3 p-3 shadow bg-light ">
+                            
+                            <!------投稿画像------->
+                            <% if post.post_image.attached? %>
                                 <%= image_tag post.post_image.variant(resize:'450x400')  %>
-                          <% end %>
-                          <div class="col-4 offset-md-9"><%= link_to "詳細を見る", post_path(post.id), class:"btn btn-light" %></div>
-                         </div>
-                        <% end %>
-                    
+                            <% end %>
+                            <div class="col-md-12 mt-3 mb-3 text-break"><%= post.content %></div>
+                            <div class="row">
+                                <div class="mt-2 ml-2 mr-3">いいね数：<%= post.favorites.count %></div>
+                                <div class="mt-2">コメント数：<%= post.post_comments.count %></div>
+                                <div class="col-md-3 offset-md-3"><%= link_to "詳細を見る", post_path(post.id), class:"btn btn-light" %></div>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
 

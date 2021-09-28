@@ -1,11 +1,11 @@
 <table class="table" >
     <tbody>
         <% if post.image.attached? %>
-                <%= image_tag post.image%>
+                <%= image_tag post.image.variant(resize:'240x250')%>
         <% else %>
                 <%= image_tag 'no_image.jpg' %>
         <% end %>
-        <div>名前：<%= customer.name %></div>
+        <div class="col-md-12 pt-3 pb-3">名前：<%= customer.name %></div>
         <tr>
             <th>フォロー</th>
 	        <th><%= link_to customer.followings.count, customer_followings_path(customer) %></th>

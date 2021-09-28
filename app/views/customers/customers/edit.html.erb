@@ -1,31 +1,33 @@
+
 <div class="container">
   <div class="row">
-    <div class="col-lg-4 edit-btn text-center">
+    <div class="col-md-4 edit-btn text-center">
       
-      <div class="mb-3 pt-5">
+      <div class="col-md-12 mb-3 pt-5">
       <h2>編集ページ</h2>
       </div>
           <%= form_with model:@customer ,local:true do |f| %>
            
-           <div class="mb-3 pt-3">
-            <label for="exampleFormControlInput1" class="form-label">名前</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="customer[name]" >
-          </div>
+            <div class="form-group">
+              <%= f.label :名前 %>
+              <%= f.text_field :name, class: "form-control name" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :自己紹介文%>
+              <%= f.text_area :introduction, class: "form-control introduction" %>
+            </div>
           
-          <div class="mb-3 pt-3 pb-3">
-            <label for="exampleFormControlInput1" class="form-label">自己紹介</label>
-            <textarea type="area" class="form-control form-control-lg" id="exampleFormControlInput1" name="customer[introduction]" ></textarea>
-          </div>
-          
-            
+            <div class="col-md-12 pt-3">
             <label for="image">
               <span class="button">プロフィール画像を選択</span><%= f.file_field :image, id: "image" %>
             </label>
+            </div>
             <div><img id="preview" style="width:50%;"></div>
             
             
-            <div>
-              <%= f.submit "変更する" ,class:" btn btn-lg btn-primary mt-3"%>
+            <div class="col-md-12">
+              <%= f.submit "変更する" ,class:" btn btn-success w-100"%>
             </div>
           <% end %>
           

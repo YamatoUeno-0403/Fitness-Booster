@@ -45,4 +45,6 @@ class Customer < ApplicationRecord
   def self.looks_word(word)
     @customer = Customer.where('name LIKE?', "%#{word}%")
   end
+  
+
 end
