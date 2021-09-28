@@ -1,0 +1,2 @@
+module Customers::MapsHelper
+end

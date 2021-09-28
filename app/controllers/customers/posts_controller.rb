@@ -22,6 +22,7 @@ class Customers::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
+      redirect_to posts_path
       @posts = Post.all
     else
       @post = Post.all
