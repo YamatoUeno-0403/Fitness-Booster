@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
 
     get 'search' => 'searches#index'
+    resources :maps, only: [:index]
   end
 
   devise_for :admins, skip: [:registrations], controllers: {
