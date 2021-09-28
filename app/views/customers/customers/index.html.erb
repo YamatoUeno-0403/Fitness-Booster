@@ -12,25 +12,25 @@
             </div>
             <div class="col-md-8 offset-1">
                 <% @customers.each do |customer| %>
-                    <div class="col-8 p-4 mt-5 border rounded shadow bg-light">
+                    <div class="col-md-8 p-4 mt-5 border rounded shadow bg-light">
                                  
-                        <div class="col-12 d-flex">
+                        <div class="col-md-12 d-flex">
                             
                             <!--プロフィール画像-->
                             <div><%= render "customers/shared/image_attached", post: customer %></div>
-                            <p class="col-4 offset-md-1"><%= link_to customer.name,customer_path(customer.id) %></p>
+                            <p class="col-md-4 offset-md-1"><%= link_to customer.name,customer_path(customer.id) %></p>
                             
                             <% if current_customer.id == customer.id %>
-                                <div class="col-6 offset-md-1"><i class="fas fa-user-check fa-3x"></i></div>
+                                <div class="col-md-6 offset-md-1"><i class="fas fa-user-check fa-3x"></i></div>
                             <% else %>
                             <!--フォローボタン-->
-                            <div class="col-6 offset-md-1"><%= render "customers/relationships/follow" , customer: customer %> </div>
+                            <div class="col-md-6 offset-md-1"><%= render "customers/relationships/follow" , customer: customer %> </div>
                             <% end %>
 
                             
                         </div>
                         
-                        <div class="p-3 text-break"><%= customer.introduction %></div>
+                        <div class="col-md-12 p-3 text-break"><%= customer.introduction %></div>
                     </div>
                 <% end %>
             </div>

@@ -1,14 +1,27 @@
-<div class="h3 pt-3"> コメント一覧</div>
+<div class="col-md-12 pt-3"> コメント一覧</div>
     <% @post_comments.each do |comment| %>
-         <div class="col-5 pt-3">
-                            
-            <%= link_to customer_path(comment.customer) do %>
-                <%= comment.customer.name %>
-            <% end %>
-                <%= comment.comment %>
-             <% if current_customer == comment.customer %>
-                 <%= link_to 'Destroy',post_post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete ,remote: true%>
-           <% end %>
-                            
+         <div class="col-md-12 col-sm-12 p-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <% if comment.customer.image.attached? %>
+                        <%= image_tag comment.customer.image.variant(resize:'100x100')%>
+                    <% else %>
+                        <%= image_tag 'no_image.jpg' %>
+                    <% end %>
+                </div>
+                <div class="col-auto">
+                    <%= link_to customer_path(comment.customer) do %>
+                    <%= comment.customer.name %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row pt-3 pb-3">
+                <div class="col-md-10 col-sm-6 text-break"><%= comment.comment %></div>
+                <% if current_customer == comment.customer %>
+                    <div class="col-md-2 col-sm-6 pt-3">
+                    <%= link_to '削除',post_post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete ,remote: true%>
+                    </div>
+                <% end %>
+            </div>                
          </div>
     <% end %>

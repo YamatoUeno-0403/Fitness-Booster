@@ -11,7 +11,6 @@ class Customers::CustomersController < ApplicationController
     @post = Post.new
     @customer = Customer.find(params[:id])
     @posts = @customer.posts.includes(:post_image_attachment)
-    
   end
 
   def edit

@@ -9,3 +9,10 @@
     opacity: 0.9;
     border-radius: 10px;
 }
+.blink {
+  animation: blinkAnime 1s infinite alternate;
+}
+@keyframes blinkAnime{
+   0% { color: #000000 }
+ 100% { color: #df5656 }
+}
