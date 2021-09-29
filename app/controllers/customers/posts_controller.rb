@@ -3,8 +3,8 @@
 class Customers::PostsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @posts = Post.includes(:image_attachment, :customer, :taggings, :post_image_attachment)
-    @posts = Post.tagged_with(params[:tag_name]) if params[:tag_name]
+    @posts = Post.includes(:image_attachment, :customer, :taggings, :post_image_attachment).page(params[:page]).per(5)
+    @posts = Post.tagged_with(params[:tag_name]).includes(:image_attachment, :customer, :taggings, :post_image_attachment).page(params[:page]).per(5) if params[:tag_name]
     @post_new = Post.new
     @customers = Customer.all
   end
@@ -22,7 +22,7 @@ class Customers::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
       @posts = Post.all
     else
       @post = Post.all
