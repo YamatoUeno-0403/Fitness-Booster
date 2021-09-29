@@ -4,13 +4,13 @@ class Customers::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def index
     @post = Post.new
-    @customers = Customer.includes(image_attachment: :blob)
+    @customers = Customer.includes(image_attachment: :blob).page(params[:page]).per(5)
   end
 
   def show
     @post = Post.new
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts.includes(:post_image_attachment)
+    @posts = @customer.posts.includes(:post_image_attachment).page(params[:page]).per(5)
   end
 
   def edit

@@ -81,6 +81,8 @@ gem 'acts-as-taggable-on'
 
 gem 'image_processing', '~> 1.2'
 
+gem 'kaminari'
+
 group :production do
   gem 'mysql2'
 end
