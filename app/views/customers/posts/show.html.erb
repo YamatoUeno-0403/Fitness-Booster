@@ -42,8 +42,8 @@
                             <%= image_tag @post.post_image.variant(resize:'500x500') %>
                         <% end %>
                     </div>
-                    <span class="sentiment-score">感情分析スコア: <strong><%= @post.score %></strong>点</span>
-                        <div class="p-2 mt-4 mb-4 text-break"><%= @post.content %></div>
+                    <div class="sentiment-score p-3">感情分析スコア: <strong><%= @post.score %></strong>点</div>
+                        <div class="p-3 mt-4 mb-4 text-break"><%= @post.content %></div>
                     
                     <div class="row col-md-12 justify-content-end">
                          <!--いいねボタン-->
