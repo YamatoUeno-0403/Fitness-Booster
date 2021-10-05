@@ -25,7 +25,7 @@
                         <% if current_customer.id == @post.customer.id %>
                             <div class="col-md-2 col-sm-2 offset-md-4"><i class="fas fa-user-check fa-3x"></i></div>
                         <% else %>
-                        <div class="col-md-4 offset-md-3">
+                        <div class="col-md-4 offset-md-2">
                             <%= render "customers/relationships/follow",customer: @customer  %>
                         </div>
                         <% end %>
@@ -42,6 +42,7 @@
                             <%= image_tag @post.post_image.variant(resize:'500x500') %>
                         <% end %>
                     </div>
+                    <span class="sentiment-score">感情分析スコア: <strong><%= @post.score %></strong>点</span>
                         <div class="p-2 mt-4 mb-4 text-break"><%= @post.content %></div>
                     
                     <div class="row col-md-12 justify-content-end">

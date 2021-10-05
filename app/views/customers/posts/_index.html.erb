@@ -20,9 +20,11 @@
                         <!----投稿画像 ----->
                         <div>
                             <% if post.post_image.attached? %>
-                                <%= image_tag post.post_image.variant(resize:'450x400')  %>
+                                <%= image_tag post.post_image.variant(resize:'400x400')  %>
                             <% end %>
                         </div>
+                       
+                        <span class="sentiment-score">感情分析スコア: <strong><%= post.score %></strong>点</span>
                     
                         <div class="col-12 text-break mt-2"><%= post.content %></div>
                     <div class="row pt-3 offset-md-7">
