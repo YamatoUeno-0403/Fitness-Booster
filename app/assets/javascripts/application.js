@@ -31,3 +31,4 @@ function modalClose(){
  //------------------------------------------------------------
   document.getElementById("modalArea").className = "modalBg modalBgClose";
 }
+

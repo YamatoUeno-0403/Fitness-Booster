@@ -4,7 +4,7 @@ class Customers::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def index
     @post = Post.new
-    @customers = Customer.includes(image_attachment: :blob).page(params[:page]).per(5)
+    @customers = Customer.includes(image_attachment: :blob).page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def show

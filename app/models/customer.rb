@@ -2,6 +2,7 @@
 
 class Customer < ApplicationRecord
   has_one_attached :image
+   validates :name, presence: true,length: {maximum: 10}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

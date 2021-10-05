@@ -6,7 +6,7 @@
     
   <!--検索対象モデルがCustomerの時 -->
   <% if @range == "Customer" %>
-  <h1 class="display-6 text-danger">トレーニー一覧</h1>
+  <h1 class="display-6 text-danger">ユーザー一覧</h1>
     <thead>
           <tr>
             <th class="col-2">プロフィール画像</th>
@@ -19,7 +19,7 @@
         <tr>
           <td><%= render "customers/shared/image_attached", post: customer  %></td>
           <td><%= link_to customer.name , customer_path(customer.id)%></td>
-          <td><%= customer.introduction %></td>
+          <td class＝"text-break"><%= customer.introduction %></td>
         </tr>
     </tbody>
     <% end %>
@@ -39,7 +39,7 @@
         <tr>
           <td><%= render "customers/shared/image_attached", post: post.customer  %></td>
           <td><%= link_to post.customer.name , customer_path(post.customer.id)%></td>
-          <td><%= post.content %></td>
+          <td class="text-break"><%= post.content %></td>
         </tr>
     </tbody>
     <% end %>

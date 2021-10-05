@@ -8,19 +8,19 @@
             <ul class="navbar-nav">
             <% if customer_signed_in? %>
             
-                <li class="ml-4 mr-4"><%= link_to maps_path, class:"nav-link  active btn-block" do %>
+                <li class="col-md-auto col-sm-2 mr-4"><%= link_to maps_path, class:"nav-link  active btn-block" do %>
                     <i class="fas fa-dumbbell"> ジムを探す</i>
                 <% end %></li>
                 
-                <li class="ml-4 mr-4"><%= link_to customers_path, class:"nav-link  active btn-block" do %>
-                    <i class="fas fa-users"> トレーニー</i>
+                <li class="col-md-auto col-sm-2 mr-4"><%= link_to customers_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-users"> ユーザー</i>
                 <% end %></li>
                 
-                <li class="mr-4"><%= link_to posts_path, class:"nav-link  active btn-block" do %>
+                <li class="col-md-auto col-sm-2 mr-4"><%= link_to posts_path, class:"nav-link  active btn-block" do %>
                     <i class="fas fa-clone"> 投稿</i>
                 <% end %></li>
                 
-                <li class="mr-4"><%= link_to destroy_customer_session_path, method: :delete , class:"nav-link  active btn-block" do %>
+                <li class="col-md-auto col-sm-2 mr-4"><%= link_to destroy_customer_session_path, method: :delete , class:"nav-link  active btn-block" do %>
                     <i class="fas fa-sign-out-alt"> ログアウトする</i>
                 <% end %></li>
                 
