@@ -15,7 +15,7 @@ class Customers::PostsController < ApplicationController
     @post_comments = @post.post_comments
     @post_comment = PostComment.new
     @customer = @post.customer
-    @post_comments = @post.post_comments.includes(:customer)
+    @post_comments = @post.post_comments.includes(:customer).order(created_at: :desc)
     
   end
 

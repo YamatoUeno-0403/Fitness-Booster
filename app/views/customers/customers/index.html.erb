@@ -24,7 +24,7 @@
                                 <div class="col-md-6 offset-md-1"><i class="fas fa-user-check fa-3x"></i></div>
                             <% else %>
                             <!--フォローボタン-->
-                            <div class="col-md-6 offset-md-1"><%= render "customers/relationships/follow" , customer: customer %> </div>
+                            <div class="col-md-6 offset-md-1" id="follow_ <%= customer.id %>"><%= render "customers/relationships/follow" , customer: customer %> </div>
                             <% end %>
 
                             
