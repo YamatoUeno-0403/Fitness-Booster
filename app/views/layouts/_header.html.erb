@@ -42,6 +42,9 @@
                 
             
             <% else %>
+                <li><%= link_to  new_admin_session_path, class:"nav-link  active btn-block" do %>
+                    <i class="fas fa-user-plus"> 管理者ログイン</i>
+                <% end %></li>
             
                 <li><%= link_to " /customers/sign_up", class:"nav-link  active btn-block" do %>
                     <i class="fas fa-user-plus"> アカウント作成</i>

@@ -15,6 +15,10 @@ Admin.create!(
   email: 'admin2@naganocake.com',
   password: 'admin2'
 )
+Admin.create!(
+    email: "tester@test.com",
+    password: "tester",
+)
 5.times do |n|
   Customer.create!(
     email: "test#{n + 1}@test.com",
@@ -29,3 +33,9 @@ end
     customer_id: (n + 1).to_s
   )
 end
+
+  Customer.create!(
+    email: "tester@test.com",
+    password: "tester",
+    name: "tester"
+  )

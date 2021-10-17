@@ -22,6 +22,7 @@
                     <%= link_to '削除',post_post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete ,remote: true%>
                     </div>
                 <% end %>
-            </div>                
+            </div>
+            <%= l @post.created_at, format: :short %>
          </div>
     <% end %>
