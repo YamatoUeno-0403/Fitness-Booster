@@ -1,1 +1,1 @@
-$("#follow_<%= @customer.id %>").html("<%= j (render 'customers/relationships/follow') %>");
+$("#follow_<%= @customer %>").html("<%= j (render 'customers/relationships/follow',customer: @customer) %>");
