@@ -2,7 +2,7 @@
 <h2>edit</h2>
 
 <%= form_with model:@post, local:true do |f| %>
- 
+<%= render "customers/shared/error_messages", model: f.object %>
 
   <div class="field">
     <%= f.label :タグ %><br />
