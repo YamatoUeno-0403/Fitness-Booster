@@ -41,8 +41,8 @@
                             <div class="col-md-12 mt-3 mb-3 text-break"><%= post.content %></div>
                             <div class="row">
                                 <div class="col-md-3 col-sm-4 mt-2"><%= l post.created_at, format: :short %></div>
-                                <div class="mt-2 ml-2 mr-3">いいね：<%= post.favorites.count %></div>
-                                <div class="mt-2">コメント：<%= post.post_comments.count %></div>
+                                <div class="mt-2 ml-2 mr-3">いいね：<strong><%= post.favorites.count %></strong></div>
+                                <div class="mt-2">コメント：<strong><%= post.post_comments.count %></strong></div>
                                 <div class="col-md-3 ml-4"><%= link_to "詳細を見る", post_path(post.id), class:"btn btn-light" %></div>
                             </div>
                         </div>

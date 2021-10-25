@@ -5,7 +5,7 @@
         <% else %>
                 <%= image_tag 'no_image.jpg' %>
         <% end %>
-        <div class="col-md-12 pt-3 pb-3">名前：<%= link_to customer.name, customer_path(current_customer) %></div>
+        <div class="col-md-12 pt-3 pb-3">名前：<%= link_to customer.name, customer_path(customer.id) %></div>
         <tr>
             <th>フォロー</th>
 	        <th><%= link_to customer.followings.count, customer_followings_path(customer) %></th>
