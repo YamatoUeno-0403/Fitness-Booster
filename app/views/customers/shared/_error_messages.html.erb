@@ -1,11 +1,10 @@
 
 <% if model.errors.any? %>
+<div class="error_container">
   <div id="error_explanation">
-    
-    <ul>
     <% model.errors.full_messages.each do |msg| %>
       <p><%= msg %></p>
     <% end %>
-    </ul>
   </div>
+</div>
 <% end %>

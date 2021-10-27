@@ -1,5 +1,6 @@
     <%= form_with model:post , data: {remote: true} do  |f| %>
-
+    <%= render "customers/shared/error_messages",  model: f.object %>
+    
         <div class="field">
             <p>タグ( ,で区切ると複数できます)</p>
             <%= f.text_field :tag_list, class: 'form-control',value: post.tag_list.join(',') %>

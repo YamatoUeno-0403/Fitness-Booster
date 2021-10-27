@@ -20,8 +20,12 @@ class Customers::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to customer_path(@customer.id), notice: 'You have updated user successfully.'
+  if @customer.update(customer_params)
+    flash[:notice] = "変更が完了しました。"
+    redirect_to customer_path(@customer.id)
+  else
+    render "edit"
+  end
   end
 
   private
