@@ -32,3 +32,15 @@ function modalClose(){
   document.getElementById("modalArea").className = "modalBg modalBgClose";
 }
 
+$(function() {
+ $('.notice').fadeOut(5000);
+ 
+ $('#image').on('change', function (e) {
+  var reader = new FileReader();
+  reader.onload = function (e) {
+ $("#preview").attr('src', e.target.result);
+  }
+ reader.readAsDataURL(e.target.files[0]);
+});
+});
+

@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  validates :content, presence: true,length: {maximum: 200}
   validates :tag_list,presence: true,length: {maximum: 20}
+  validates :content, presence: true,length: {maximum: 200}
+  
   
   has_one_attached :image
   has_one_attached :post_image

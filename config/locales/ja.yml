@@ -1,5 +1,10 @@
 ja:
   activerecord:
+    attributes:
+      post:
+        tag_list: タグ
+        content: 投稿内容
+        
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
