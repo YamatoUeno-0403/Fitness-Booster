@@ -1,11 +1,11 @@
 <div class="text-center">
   <main class="form-signin">
- <h1></h1>
+
  <h2>ログイン</h2>
 
 
 <%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
-<%= render "customers/shared/error_messages",  model: f.object %>
+<%= render "customers/shared/error_messages",  model: @customer %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

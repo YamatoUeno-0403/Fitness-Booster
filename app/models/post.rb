@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  validates :tag_list,presence: true,length: {maximum: 20}
+  validates :tag_list ,length: {maximum: 20}
   validates :content, presence: true,length: {maximum: 200}
   
   

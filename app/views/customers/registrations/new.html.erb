@@ -2,7 +2,6 @@
     <h2 class="h3 mb-3 fw-normal">Sign up</h2>
     
       <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-        <%= render "customers/shared/error_messages",  model: f.object %>
         
         <div class="field">
           <%= f.label :名前 %><br />
