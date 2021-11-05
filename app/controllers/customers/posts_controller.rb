@@ -34,12 +34,18 @@ class Customers::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.customer != current_customer
+      redirect_to post_path(@post.id)
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id), notice: 'You have updated user successfully.'
+    if @post.update(post_params)
+      redirect_to post_path(@post.id), notice: '変更が完了しました'
+    else 
+      render "edit"
+    end
   end
 
   def destroy

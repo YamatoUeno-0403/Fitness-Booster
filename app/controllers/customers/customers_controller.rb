@@ -10,18 +10,24 @@ class Customers::CustomersController < ApplicationController
   def show
     @post = Post.new
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts.includes(:post_image_attachment).page(params[:page]).per(5)
+    @posts = @customer.posts.includes(:post_image_attachment).page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def edit
     @customer = Customer.find(params[:id])
-    redirect_to customer_path(current_customer) if @customer != current_customer
+    if @customer != current_customer
+      redirect_to customer_path(current_customer) 
+    end
   end
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to customer_path(@customer.id), notice: 'You have updated user successfully.'
+  if @customer.update(customer_params)
+    flash[:notice] = "変更が完了しました"
+    redirect_to customer_path(@customer.id)
+  else
+    render "edit"
+  end
   end
 
   private

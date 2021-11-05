@@ -1,5 +1,6 @@
-    <%= form_with model:post , data: {remote: true} do  |f| %>
-
+    <%= form_with model:post ,  local:true  do  |f| %>
+    <%= render "customers/shared/error_messages",  model: f.object %>
+    
         <div class="field">
             <p>タグ( ,で区切ると複数できます)</p>
             <%= f.text_field :tag_list, class: 'form-control',value: post.tag_list.join(',') %>
@@ -20,13 +21,3 @@
         </div>
     <% end %>
     
-
-        <script>
-          $('#image').on('change', function (e) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $("#preview").attr('src', e.target.result);
-            }
-            reader.readAsDataURL(e.target.files[0]);
-        });
-        </script>
