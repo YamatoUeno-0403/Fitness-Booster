@@ -1,91 +1,46 @@
-.button-search {
-  display       : inline-block;
+.button-open {
+  display  : inline-block;
   border-radius : 5%;         
-  font-size     : 13pt;        
-  text-align    : center;     
-  cursor        : pointer;     
-  padding       : 11px 79px;  
-  background    : rgb(223, 86, 86);     
-  color         : #ffffff;    
-  line-height   : 1em;         
-  opacity       : 0.9;       
+  font-size : 13pt;        
+  text-align: center;     
+  cursor    : pointer;     
+  padding   : 11px 79px;  
+  background   : rgb(223, 86, 86);     
+  color : #ffffff;    
+  line-height  : 1em;         
+  opacity     : 0.9;       
   transition    : .3s;         /* なめらか変化 */
   box-shadow    : 1px 1px 3px #666666;  /* 影の設定 */
 }
-.button-search:hover {
+.button-open:hover {
   box-shadow    : none;        
   opacity       : 1;           
 }
-/* === モーダル非表示（初期） ============================== */
-.modalNoDisp {
-  display : none;
-}
 
-/* === モーダルバックグランド ============================== */
-.modalBg {
-  position   : fixed;
-  overflow   : hidden;
-  top        : 0;
-  right      : 0;
-  bottom     : 0;
-  left       : 0;
-  background : radial-gradient(circle at 50% 50%,
-                               rgba(0, 0, 0, 0.90),
-                               rgba(0, 0, 0, 0.70));
-  z-index    : 10;
-}
-
-/* === モーダルバックグランド：OPEN時のアニメーション ====== */
-.modalBgOpen {
-  animation  : bgOpenAnime 1.1s ease;
-}
-@keyframes bgOpenAnime {                     /* フェードイン */
-   0% { opacity: 0 }
- 100% { opacity: 1 }
-}
-
-/* === モーダルバックグランド：CLOSE時のアニメーション ===== */
-.modalBgClose {
-  bottom     : 100%;
-  animation  : bgCloseAnime 1.1s ease;
-}
-@keyframes bgCloseAnime {                     /* フェードイン */
-   0% { opacity: 1; bottom: 0 }
- 100% { opacity: 0; bottom: 0 }
-}
-
-/* === モーダルウインド ==================================== */
-.modalBg .modalWindow {
-                             /* モーダルウインドを中心に表示 */
-  position      : absolute;
-  top           : 50%;
-  left          : 50%;
-  transform     : translate(-50%, -50%);
-  z-index       : 11;
-           /* ↓モーダルウインドウの見た目：変更してください */
-  width         : 300px;
-  min-height    : 300px;
-  background    : #fff;
-  border        : 3px solid #35557f;
+.modal-window {
+  display:none;
+  position  : fixed;
+  top   : 50%;
+  left  : 50%;
+  transform : translate(-50%, -50%);
+  z-index : 11;
+           /* モーダルウインドウの見た目*/
+  width     : 300px;
+  min-height  : 300px;
+  background  : #fff;
+  border  : 3px solid rgb(223, 86, 86);
   border-radius : 10px;
-  font-size     : 16pt;
-  text-align    : center;
+  font-size   : 16pt;
+  text-align  : center;
+  padding:15px;
 }
-
-/* === モーダルウインド：OPEN時のアニメーション============= */
-.modalBgOpen .modalWindow {
-  animation     : modalOpenAnime 1.1s ease;
-}
-@keyframes modalOpenAnime {                      /* 上→中心 */
-   0% { top : -50% }
- 100% { top : 50%  }
-}
-
-/* === モーダルウインド：CLOSE時のアニメーション============ */
-.modalBgClose .modalWindow {
-  animation     : modalCloseAnime 1.1s ease;
-}
-@keyframes modalCloseAnime {                      /* 中心→下 */
-   0% { top : 50%  }
- 100% { top : 150% }
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }

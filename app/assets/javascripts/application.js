@@ -18,19 +18,14 @@
 //= require turbolinks
 //= require_tree .
 
-function modalOpen(){
- //------------------------------------------------------------
- //  モーダルウインドウ オープン
- //------------------------------------------------------------
-  document.getElementById("modalArea").className = "modalBg modalBgOpen";
-}
-
-function modalClose(){
- //------------------------------------------------------------
- //  モーダルウインドウ クローズ
- //------------------------------------------------------------
-  document.getElementById("modalArea").className = "modalBg modalBgClose";
-}
+$(function () {
+  $('.js-open').click(function () {
+    $('#overlay, .modal-window').fadeIn();
+  });
+  $('.js-close, #overlay').click(function () {
+    $('#overlay, .modal-window').fadeOut();
+  });
+});
 
 $(function() {
  $('.notice').fadeOut(5000);
