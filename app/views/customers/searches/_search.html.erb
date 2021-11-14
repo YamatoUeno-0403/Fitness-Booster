@@ -1,9 +1,9 @@
 <% if customer_signed_in? %>
  
-    <input type="button" value="検索する" id="a" onclick="modalOpen()" class="button-search" >
+    <input type="button" value="検索する" class="js-open button-open" >
     
-    <div id="modalArea" class="modalNoDisp">
-      <div class="modalWindow"> <!-- ウインドウ -->
+    <div id="overlay" class="overlay"></div>
+      <div class="modal-window"> <!-- ウインドウ -->
         <p>検索する</p>
         <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
         <div class="pt-2 pb-2 ">
@@ -14,11 +14,11 @@
           </select>
         </div>
         <div class="pt-2 pb-2 pl-5"><input class="form-control" type="text" name="word" placeholder="検索ワードを入力" style="width:80%"></div>
-        <div class="pt-2 pb-4"><input type="submit" value"送信する"="" name="commit" class="button-search"></div>
+        <div class="pt-2 pb-4"><input type="submit" value"送信する"="" name="commit" class="button-open"></div>
     </form>
-    <div clas="p-3"><input type="button" value="閉じる" onclick="modalClose()" style="width:30%"></div>
+    <div clas="p-3"><input type="button" value="閉じる" class="js-close button-close"></div>
       </div>
-    </div>
+    
     
 
 <% end %>
