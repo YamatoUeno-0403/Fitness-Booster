@@ -6,7 +6,7 @@
     
   <!--検索対象モデルがCustomerの時 -->
   <% if @range == "Customer" %>
-  <h1 class="display-6 text-danger">ユーザー一覧</h1>
+  <h1 class="display-6 text-black">検索一覧</h1>
     <thead>
           <tr>
             <th class="col-2">プロフィール画像</th>
@@ -25,7 +25,7 @@
     <% end %>
   <% else %>
     <!--検索対象モデルがCustomerではない時(= 検索対象モデルがPostの時) -->
-    <h1 class="display-6 text-danger">投稿一覧</h1>
+    <h1 class="display-6 text-black">検索一覧</h1>
     <thead>
           <tr>
             <th class="col-2">プロフィール画像</th>

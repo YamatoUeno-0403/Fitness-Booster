@@ -1,7 +1,7 @@
     <div class="container">  
         <div class="row">
             
-            <div class="col-md-3 p-4 mt-5 border rounded shadow h-50 bg-light">
+            <div class="col-md-3 p-4 mt-5 border rounded shadow h-50 bg-white">
                 
                 <!--ユーザーサイドバー-->
                 <%= render 'customers/customers/info', post: current_customer, customer: current_customer %>
@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-8 offset-1">
                 <% @customers.each do |customer| %>
-                    <div class="col-md-8 p-4 mt-5 border rounded shadow bg-light">
+                    <div class="col-md-8 p-4 mt-5 border rounded shadow bg-white">
                                  
                         <div class="col-md-12 d-flex">
                             
