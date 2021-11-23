@@ -3,8 +3,8 @@
 <h2>Map検索</h2>
 
 <div class="pt-1 ml-5">
-<input id="address" type="textbox" >
-<input type="button" value="検索" onclick="codeAddress()">
+<input id="address" type="textbox" value="">
+<input type="button" value="地図を検索" onclick="codeAddress()">
 </div>
 
 <div class="col-md-12">
@@ -12,26 +12,28 @@
 </div>
 </div>
 </div>
+<div id='map'></div>
+
 <style>
-#map {
-  height: 600px;
-  width: 600px;
-}
+    #map {
+        height: 500px;
+        width: 500px;
+    }
 </style>
 
 <script>
-let map
+    let map
 
 function initMap(){
   geocoder = new google.maps.Geocoder()
   
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.7828, lng:-73.9653},
+    center: {lat: 35.6809591, lng:139.7673068},
     zoom: 12,
   });
 
   marker = new google.maps.Marker({
-    position:  {lat: 40.7828, lng:-73.9653},
+    position:  {lat: 35.6809591, lng:139.7673068},
     map: map
   });
 }
@@ -54,4 +56,5 @@ function codeAddress(){
   });   
 }
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>

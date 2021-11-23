@@ -38,4 +38,3 @@ $(function() {
  reader.readAsDataURL(e.target.files[0]);
 });
 });
-

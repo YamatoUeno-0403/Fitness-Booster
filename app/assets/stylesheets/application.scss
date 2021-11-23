@@ -19,10 +19,7 @@ html {
   height: auto;
 }
 body{
-    width: 100%;
-    height: 100%;
-    background  : linear-gradient(154deg, #f8f4e6, #ffffff, #f8f4e6);
-  
+    background:#e9e9e9;
 }
 
 .card {
@@ -34,6 +31,9 @@ body{
   color:#df5656;
 }
 
+.navbar{
+  background-color:#ef857d;
+}
 /*----------ページネーション-----------*/
 
 
