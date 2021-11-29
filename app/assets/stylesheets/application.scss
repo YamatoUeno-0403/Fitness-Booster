@@ -19,11 +19,14 @@ html {
   height: auto;
 }
 body{
-    width: 100%;
-    height: 100%;
-    background  : linear-gradient(154deg, #f8f4e6, #ffffff, #f8f4e6);
-  
+    background:#e9e9e9;
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
 
 .card {
   margin: 0 auto 60px;
@@ -33,7 +36,10 @@ body{
 .like{
   color:#df5656;
 }
-
+/*----------ヘッダー-----------*/
+.navbar{
+  background-color:#ef857d;
+}
 /*----------ページネーション-----------*/
 
 
@@ -56,7 +62,7 @@ body{
   border-radius: 15px;   
 }
 
-/*error*/
+/*--------error----------*/
 
 #error_explanation {
   color: red;
@@ -67,7 +73,7 @@ body{
   
 }
 
-/*flash*/
+/*--------flash------------*/
 
 .notice{
   color:#155724;

@@ -90,3 +90,5 @@ gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
+
+gem 'geocoder'
