@@ -36,6 +36,8 @@
                      <!--------タグリスト----------->
                     <div><%= render 'customers/posts/tag_list', tag_list: @post.tag_list %></div>
                     
+                    <div class="p-3 mt-4 mb-4 text-break"><%= @post.content %></div>
+                    
                     <!---------投稿画像-------->
                     <div class="col-md-12">
                         <% if @post.post_image.attached? %>
@@ -44,7 +46,7 @@
                     </div>
   
                     <div class="sentiment-score p-3">感情分析スコア: <strong><%= @post.score %></strong>点</div>
-                        <div class="p-3 mt-4 mb-4 text-break"><%= @post.content %></div>
+                        
                     
                     <div class="row col-md-12 justify-content-end">
                          <!--いいねボタン-->
